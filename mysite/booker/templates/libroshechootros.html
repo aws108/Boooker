@@ -1,0 +1,45 @@
+{% extends "home.html" %}
+
+
+{% block content %}
+<div class="container register">
+<h2>LIBROS</h2>
+
+
+{% for libros in libros_list %}
+	{% for generos in libros.genero.all %}
+	{% if generos.nombre == "Otros" %}
+		<div class="col-md-4 well">
+	        <div class="panel panel-primary">
+	            <div class="panel-heading">
+	                <h3 class="panel-title">{{ libros.nombre }}</h3>
+	            </div>
+	                <div class="panel-body">
+
+	                    
+	   						{{ generos }}
+						
+						<br/>
+	                    <img src="{{libros.portada.url}}" height="324" width="250" ><br/>
+	                    {{libros.sinopsis}}
+	                    
+	                    
+
+	                </div>
+
+	                <div class="panel-footer">
+
+	                	<a href="{{ libros.contenido.url }}">Descarga</a>
+
+	                </div>
+	        </div>
+	    </div>
+
+
+	
+	{% endif %}
+	{% endfor %}
+{% endfor %}
+
+</div>
+{% endblock %}
