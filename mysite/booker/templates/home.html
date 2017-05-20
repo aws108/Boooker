@@ -1,0 +1,168 @@
+{% load i18n %}
+<!DOCTYPE html>
+<html lang="en">
+<head> 
+<meta charset="UTF-8" /> 
+<title>Booker</title>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{{ STATIC_URL }}style.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+
+    <style>
+        .navbar-custom {
+            background-color: #FF8C00;
+        }
+        /* change the brand and text color */
+        .navbar-custom .navbar-brand,
+        .navbar-custom .navbar-text {
+            color: white;
+        }
+        /* change the link color */
+        .navbar-custom .navbar-nav .nav-link {
+            color: white;
+        }
+        /* change the color of active or hovered links */
+        .navbar-custom .nav-item.active .nav-link,
+        .navbar-custom .nav-item:hover .nav-link {
+            color: white;
+        }
+        .navbar-custom .navbar-nav > li > a:hover, .nav > li > a:focus { text-decoration: none; background-color: #FFA500; }
+        }
+        a:link {
+            color: white;
+            text-decoration:none;
+        }
+
+        /* visited link */
+        a:visited {
+            color: white;
+            font-weight: bold;
+            text-decoration:none;
+        }
+
+        /* mouse over link */
+        a:hover {
+            color: black;
+            text-decoration:none;
+        }
+
+        /* selected link */
+        a:active {
+            color: white;
+            text-decoration:none;
+        }
+        .pie{
+            background-color: #FF8C00;
+            color:white;
+            text-align:center;
+            height:50%;
+        }
+        .face{
+            padding-left: 10%;
+        }
+        
+    </style>
+
+    <title>{% block title %}User test{% endblock %}</title>
+</head>
+
+<body>
+    
+    {% block nav %}
+    <nav class="navbar navbar-custom">
+        <div class="container-fluid">
+        <div class="navbar-header">
+            {% load static %}
+            <img src="{% static 'booker.png' %}" alt="My image">&nbsp;&nbsp;</img>
+
+        </div>
+        <ul class="nav navbar-nav">
+            <li class="active"><a href="/hecho">Home</a></li>
+            <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">Generos
+                <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li><a href="/accion">Accion</a></li>
+                  <li><a href="/aventura">Aventura</a></li>
+                  <li><a href="/cienciaficcion">Ciencia Ficcion</a></li>
+                  <li><a href="/humor">Humor</a></li>
+                  <li><a href="/misterio">Misterio</a></li>
+                  <li><a href="/romance">Romance</a></li>
+                  <li><a href="/poesia">Poesia</a></li>
+                  <li><a href="/terror">Terror</a></li>
+                  <li><a href="/drama">Drama</a></li>
+                  <li><a href="/otros">Otros</a></li>
+                </ul>
+            </li>
+            <li><a href="/libros">Sube tu libro</a></li>
+            <li><a href="/editor">Editor</a></li>
+        </ul>
+
+        <div id="header" style="text-align:right;">
+    <a href="{% url 'auth_login' %}"></a> <span class="glyphicon glyphicon-user"></span> 
+
+    {% if user.is_authenticated %}
+        {% trans "Logged in" %}: {{ user.username }} 
+        (<a href="{% url 'auth_logout' %}">{% trans "Log out" %}</a> | 
+        <a href="{% url 'auth_password_change' %}">{% trans "Change password" %}</a>)
+    {% else %}
+       <a href="{% url 'auth_login' %}">{% trans "Log in" %}</a>
+    {% endif %}
+    </div>
+    </div>
+    </nav>
+    {% endblock %}   
+    
+
+    <div id="content" style="text-align:left;">
+    {% block content %}
+    {% endblock %}
+    </div>
+
+    <!--<div id="footer">-->
+
+    <!--FACEBOOK-->
+    
+    <!--FACEBOOK -->
+
+    {% block footer %}
+
+        <hr />
+        <div class="pie">
+        <br/>
+            <p>All right reserved © Copyright 2017. Founded by Marc Solà and Sergio Lizana</p>
+        
+        
+        
+        {% endblock %}
+        <!--</div> -->
+        <!--<body> -->
+        <!--{% load static %}
+                
+            {% if user and not user.is_anonymous %} Welcome back {{ user.get_full_name }}. 
+                <br/>
+            {% else %}
+                <a href="{% url 'social:begin' 'facebook' %}?next={{ request.path }}"><img src="{% static 'logo_facebook.png' %}" alt="My image"></img> </a>
+            {% endif %}
+            -->
+            <br/>
+        </div>
+
+  
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+
+</body>
+
+</html>

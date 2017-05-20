@@ -1,0 +1,19 @@
+sudo pip install python-social-auth
+
+sudo pip install social-auth-app-django
+
+sudo pip install django-registration
+
+sudo pip install django-bootstrap3
+
+sudo pip install django-richtextfield
+
+sudo pip install django-ckeditor
+
+pip install --upgrade django (versión 1.11.1)
+
+sudo pip install django-star-ratings
+
+python manage.py runserver
+
+Para los comentarios: https://django-contrib-comments.readthedocs.io/en/latest/quickstart.html

@@ -1,0 +1,61 @@
+{% extends "home.html" %}
+
+
+{% block content %}
+<div class="container register">
+
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'star-ratings/css/star-ratings.css' %}">
+<script type="text/javascript" src="{% static 'star-ratings/js/dist/star-ratings.min.js' %}"></script>
+
+<h2>Galería de libros</h2>
+<h5>Escoge un libro y empieza a leer</h5>
+
+
+<hr/>
+{% for libros in libros_list %}
+	
+	
+		<div class="col-md-4 well">
+	        <div class="panel panel-primary">
+	            <div class="panel-heading">
+	                <h3 class="panel-title">{{ libros.nombre }}</h3>
+	            </div>
+	                <div class="panel-body">
+						{% for generos in libros.genero.all %}
+	                    
+	   						{{ generos }}
+						{% endfor %}
+
+	   					<br/>
+						<br/>
+						<p style="text-align: center;">
+	                    	<a href="/visualizador/{{libros.id}}"><img src="{{libros.portada.url}}" height="324" width="250"></img></a>
+	                    </p>
+						
+	                    {{libros.sinopsis}}
+	                    
+	                    
+
+	                </div>
+
+	                <div class="panel-footer">
+
+	                	{% load ratings %}
+
+						{% ratings libros %}
+
+						{% if libros.contenido != None %}
+	                	<a href="{{ libros.contenido.url }}">Descarga</a>
+						{% endif %}
+	                </div>
+	        </div>
+	    </div>
+
+
+	{% endfor %}
+
+
+</div>
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends "home.html" %}
+
+{% block content %}
+
+{% for capitulo in caps %}
+
+<div class="container register">
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-sm-12" >
+
+				<a href="/visualizador2/{{capitulo.id}}"><p style="text-align: center;">{{capitulo.nombre}}</p></a>
+				<!--<p style="text-align: center;">{{capitulo.content|safe}}</p> -->
+			</div>
+		</div>
+	</div>
+</div>
+
+{% endfor %} 
+
+{% endblock %}

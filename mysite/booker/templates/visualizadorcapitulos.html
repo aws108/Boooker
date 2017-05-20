@@ -1,0 +1,16 @@
+{% extends "home.html" %}
+
+{% block content %}
+
+{% for capitulo in caps %}
+
+<div class="container register">
+
+	<p style="text-align: center;">{{capitulo.nombre}}</p>
+	<p style="text-align: center;">{{capitulo.content|safe}}</p>
+
+</div>
+
+{% endfor %} 
+
+{% endblock %}
