@@ -18,6 +18,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
 
+
     <style>
         .navbar-custom {
             background-color: #FF8C00;
@@ -73,17 +74,24 @@
         
     </style>
 
+
     <title>{% block title %}User test{% endblock %}</title>
 </head>
 
 <body>
     
     {% block nav %}
+
     <nav class="navbar navbar-custom">
         <div class="container-fluid">
         <div class="navbar-header">
             {% load static %}
             <img src="{% static 'booker.png' %}" alt="My image">&nbsp;&nbsp;</img>
+
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">Booker Logo</a>
 
         </div>
         <ul class="nav navbar-nav">
@@ -104,7 +112,11 @@
                   <li><a href="/otros">Otros</a></li>
                 </ul>
             </li>
+
             <li><a href="/libros">Sube tu libro</a></li>
+
+            <li><a href="/libros">Formulario</a></li>
+
             <li><a href="/editor">Editor</a></li>
         </ul>
 
@@ -129,11 +141,7 @@
     {% endblock %}
     </div>
 
-    <!--<div id="footer">-->
 
-    <!--FACEBOOK-->
-    
-    <!--FACEBOOK -->
 
     {% block footer %}
 
@@ -162,6 +170,22 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 
+
+
+    <div id="footer">
+    {% block footer %}
+        <hr />
+    {% endblock %}
+    </div>
+    <body> 
+        {% if user and not user.is_anonymous %} Welcome back {{ user.get_full_name }}. 
+            <a href="{% url 'user-logout' %}">Logout</a>
+        {% else %}
+            <a href="{% url 'social:begin' 'facebook' %}?next={{ request.path }}">Enter with Facebook </a>
+        {% endif %}
+    </body>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 
 </body>
 

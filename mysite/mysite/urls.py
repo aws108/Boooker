@@ -75,6 +75,7 @@ urlpatterns = [
     url(r'^visualizador2/(?P<visualiza2>[0-9]{0,10})/', views.visualizadorcapitulos , name="visualizador2"),
 
 
+
 	#url(r'^static/(?P<path>.*)$', 'django.views.static.serve', {
     #   'document_root': settings.STATIC_ROOT
     #}),
@@ -84,8 +85,10 @@ urlpatterns = [
     url(r'^djrichtextfield/', include('djrichtextfield.urls')),
     url(r'^ckeditor/', include('ckeditor_uploader.urls')),
 
+
     url(r'^ratings/', include('star_ratings.urls', namespace='ratings', app_name='ratings')),
     url(r'^comments/', include('django_comments.urls')),
+
 
 ]
 

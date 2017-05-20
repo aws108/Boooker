@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'bootstrap3',
     'djrichtextfield',
     'ckeditor',
+
     'star_ratings',
 
 ]
@@ -137,7 +138,11 @@ SOCIAL_AUTH_FACEBOOK_KEY = '215787955587969'
 
 SOCIAL_AUTH_FACEBOOK_SECRET = 'd56ed7ca7745e24997e89eaff2e73154' 
 
-SOCIAL_AUTH_LOGIN_REDIRECT_URL = reverse_lazy('hecho')
+
+#SOCIAL_AUTH_LOGIN_REDIRECT_URL = reverse_lazy('hecho')
+
+SOCIAL_AUTH_LOGIN_REDIRECT_URL = "hecho"
+
 # Internationalization
 # https://docs.djangoproject.com/en/1.10/topics/i18n/
 
@@ -175,15 +180,17 @@ LOGIN_REDIRECT_URL=reverse_lazy('hecho')
 ACCOUNT_ACTIVATION_DAYS=365
 
 EMAIL_HOST = 'localhost'
+
 EMAIL_PORT = 587
+
 EMAIL_USE_TLS = True
 EMAIL_HOST='mmarcsola@gmail.com'
 EMAIL_HOST_USER = 'mmarcsola@gmail.com'
 EMAIL_HOST_PASSWORD = 'car18434@'
 #EMAIL_PORT = 587
 SERVER_EMAIL = 'mmarcsola@gmail.com'
-#EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+#EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.10/howto/static-files/

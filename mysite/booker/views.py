@@ -5,12 +5,19 @@ from django.http import HttpResponse
 
 from booker.models import *
 # Create your views here.
+<<<<<<< HEAD
 
+=======
+>>>>>>> 10687fdb2e1527d22cff1479e9cd59f6a8feb09b
 from django.contrib.auth import logout
 
 def logout_view(request):
     logout(request)
+<<<<<<< HEAD
     return render( request, 'visualizadorlibros.html')
+=======
+    # Redirect to a success page.
+>>>>>>> 10687fdb2e1527d22cff1479e9cd59f6a8feb09b
 
 class LibrosCreateView(CreateView):
 	model = Libros
@@ -27,6 +34,7 @@ class Libros2CreateView(CreateView):
 	fields = ['nombre','libro','content']
 
 
+<<<<<<< HEAD
 #VIEW PERSONALIZADA
 def visualizadorlibros(request,visualiza):
 	identificador = visualiza
@@ -42,6 +50,11 @@ def visualizadorcapitulos(request,visualiza2):
 	return render( request, 'visualizadorcapitulos.html' , {"caps":capitulos} )
 
 		
+=======
+def crea_capitol_view(request):
+	pass
+
+>>>>>>> 10687fdb2e1527d22cff1479e9cd59f6a8feb09b
 
 class LibrosListView(ListView):
 	model = Libros

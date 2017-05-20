@@ -4,6 +4,7 @@
 {% block content %}
 <div class="container register">
 
+
 {% load static %}
 
 <link rel="stylesheet" href="{% static 'star-ratings/css/star-ratings.css' %}">
@@ -14,6 +15,11 @@
 
 
 <hr/>
+
+<h2>LIBROS</h2>
+
+
+
 {% for libros in libros_list %}
 	
 	
@@ -31,7 +37,11 @@
 	   					<br/>
 						<br/>
 						<p style="text-align: center;">
+
 	                    	<a href="/visualizador/{{libros.id}}"><img src="{{libros.portada.url}}" height="324" width="250"></img></a>
+
+	                    	<img src="{{libros.portada.url}}" height="324" width="250" >
+
 	                    </p>
 						
 	                    {{libros.sinopsis}}
@@ -42,6 +52,7 @@
 
 	                <div class="panel-footer">
 
+
 	                	{% load ratings %}
 
 						{% ratings libros %}
@@ -49,6 +60,10 @@
 						{% if libros.contenido != None %}
 	                	<a href="{{ libros.contenido.url }}">Descarga</a>
 						{% endif %}
+
+	                	<a href="{{ libros.contenido.url }}">Descarga</a>
+
+
 	                </div>
 	        </div>
 	    </div>
