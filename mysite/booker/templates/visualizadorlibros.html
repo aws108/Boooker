@@ -3,21 +3,30 @@
 {% block content %}
 
 
-{% for capitulo in caps %}
 
 <div class="container register">
-	<div class="container-fluid">
-		<div class="row">
-			<div class="col-sm-12" >
+		
+			<div class="container-fluid">
+					<div class="row">
+						<div class="col-sm-12" >
+							{% for capitulo in caps %}
+							{% load static %}
+								<div class="marc">
+									<a href="/visualizador2/{{capitulo.id}}">{{capitulo.nombre}}</a>&nbsp;&nbsp;
 
-				<a href="/visualizador2/{{capitulo.id}}"><p style="text-align: center;">{{capitulo.nombre}}</p></a>
-				<!--<p style="text-align: center;">{{capitulo.content|safe}}</p> -->
+								{% if request.user in capitulo.libro.autores.all %}
+									<a href="/editarcapitulos/{{capitulo.id}}"><span class="glyphicon glyphicon-pencil"></span></a>
+								
+									<a href="/borrar/{{capitulo.id}}">&nbsp;&nbsp;<span class="glyphicon glyphicon-trash"></span></a>
+								{% endif %}
+								</div>
+							{% endfor %}
+							
+						</div>
+
+					</div>
 			</div>
-		</div>
-	</div>
 </div>
-
-{% endfor %} 
 
 
 {% endblock %}

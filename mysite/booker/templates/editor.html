@@ -5,11 +5,10 @@
 {% bootstrap_css %}
 {% bootstrap_javascript %}
 {% bootstrap_messages %}
-
 <br/>
 {% block content %}
 <div class="container register">
-	<h2>Crea tu propio libro</h2>
+	<h2>Crea un capítulo para tu libro</h2>
 	<h4>Utiliza nuestro editor para escribir tu historia</h4>
 	<br/>
 	{% load staticfiles %}
@@ -27,26 +26,5 @@
 	  {% endbuttons %}
 
 	</form>
-
-
-{% block content %}
-<div class="container register">
-
-{% load staticfiles %}
-<script type="text/javascript" src="/static/ckeditor/ckeditor-init.js"></script>
-<script type="text/javascript" src="/static/ckeditor/ckeditor/ckeditor.js"></script>
-
-<form enctype="multipart/form-data" method="post" action=".">
-	{% csrf_token %}
-  	{% bootstrap_form form %}
-
-  {% buttons %}
-
-  <input type="submit" value="{% trans 'Submit' %}" />
-
-  {% endbuttons %}
-
-</form>
-
 </div>
 {% endblock %}

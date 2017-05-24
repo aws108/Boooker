@@ -46,7 +46,7 @@ urlpatterns = [
 	url(r'^$', TemplateView.as_view(template_name="home.html"), name="home"),
 
     #FORMULARIO
-	url(r'^libros/', views.LibrosCreateView.as_view(success_url='/hecho'), name="compres" ),
+	
 
     #CKEDITOR
     url(r'^editor/', views.Libros2CreateView.as_view(success_url='/editor'), name="editor" ),
@@ -54,6 +54,17 @@ urlpatterns = [
 
     #TODOS LOS LIBROS
 	url(r'^hecho/', views.LibrosListView.as_view(), name="hecho"),
+
+    #BORRAR CAPITULOS
+    url(r'^borrar/(?P<pk>\d+)/$', views.CapitulosDeleteView.as_view(), name='delete'),
+    #BORRAR LIBROS
+    url(r'^borrarlibros/(?P<pk>\d+)/$', views.LibrosDeleteView.as_view(), name='delete2'),
+    #EDITAR LIBROS
+    url(r'^editarcapitulos/(?P<pk>\d+)/$', views.EditorCapitulos.as_view(), name='update'),
+    #Separador crear o subir libro
+    url(r'^sube_o_crea/', views.SubeCreaLibro.as_view(), name="sube_o_crea"),
+    url(r'^crea/', views.LibrosDesdeCero.as_view(success_url='/editor'),name="crea"),
+    url(r'^sube/', views.LibrosCreateView.as_view(success_url='/hecho'), name="sube" ),
 
     #GENEROS
     url(r'^accion/', views.LibrosAccionListView.as_view(), name="accion"),
@@ -67,13 +78,15 @@ urlpatterns = [
     url(r'^drama/', views.LibrosDramaListView.as_view(), name="drama"),
     url(r'^otros/', views.LibrosOtrosListView.as_view(), name="otros"),
 
+    #FAQ
+    url(r'^faq/', views.Faq.as_view(), name="faq"),
+
 	# Logout URL
 	#url( r'^logout/$', auth_views.LogoutView.as_view() , {'next_page': '/'}, name="user-logout" ),
 
     #Visualizador capitulos
     url(r'^visualizador/(?P<visualiza>[0-9]{0,10})/', views.visualizadorlibros , name="visualizador"),
     url(r'^visualizador2/(?P<visualiza2>[0-9]{0,10})/', views.visualizadorcapitulos , name="visualizador2"),
-
 
 
 	#url(r'^static/(?P<path>.*)$', 'django.views.static.serve', {
@@ -85,10 +98,8 @@ urlpatterns = [
     url(r'^djrichtextfield/', include('djrichtextfield.urls')),
     url(r'^ckeditor/', include('ckeditor_uploader.urls')),
 
-
     url(r'^ratings/', include('star_ratings.urls', namespace='ratings', app_name='ratings')),
     url(r'^comments/', include('django_comments.urls')),
-
 
 ]
 

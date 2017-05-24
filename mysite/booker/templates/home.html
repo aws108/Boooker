@@ -18,8 +18,10 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
 
-
     <style>
+        .dropdown-menu{
+            background-color: orange;
+        }
         .navbar-custom {
             background-color: #FF8C00;
         }
@@ -37,19 +39,15 @@
         .navbar-custom .nav-item:hover .nav-link {
             color: white;
         }
-        .navbar-custom .navbar-nav > li > a:hover, .nav > li > a:focus { text-decoration: none; background-color: #FFA500; }
+        .navbar-custom .navbar-nav > li > a:hover, .nav > li > a:focus { text-decoration: none; background-color: #ffae00; }
         }
         a:link {
-            color: white;
+            color: black;
             text-decoration:none;
         }
 
         /* visited link */
-        a:visited {
-            color: white;
-            font-weight: bold;
-            text-decoration:none;
-        }
+        
 
         /* mouse over link */
         a:hover {
@@ -71,9 +69,26 @@
         .face{
             padding-left: 10%;
         }
-        
+        .imagen img{width:50px;height:50px;}
+        .centrar{
+            text-align: center;
+        }
+        .marc{background-color: #FFA500;
+              color:white;
+              width: 60%;
+              height:100%;
+              text-align: center;
+              margin-left:20%;
+              padding-left: 20%;
+              padding-right:20%;
+              padding-top:0.75%;
+              padding-bottom:0%;
+            
+          }
+        .naranja{
+            background-color: #FFA500;    
+        }
     </style>
-
 
     <title>{% block title %}User test{% endblock %}</title>
 </head>
@@ -81,23 +96,18 @@
 <body>
     
     {% block nav %}
-
     <nav class="navbar navbar-custom">
         <div class="container-fluid">
         <div class="navbar-header">
             {% load static %}
-            <img src="{% static 'booker.png' %}" alt="My image">&nbsp;&nbsp;</img>
-
-    <nav class="navbar navbar-default">
-        <div class="container-fluid">
-        <div class="navbar-header">
-            <a class="navbar-brand" href="#">Booker Logo</a>
-
+            <div class="imagen">
+            <img src="{% static 'bookerdouble.png' %}" alt="My image">&nbsp;&nbsp;</img>
+            </div>
         </div>
         <ul class="nav navbar-nav">
             <li class="active"><a href="/hecho">Home</a></li>
             <li class="dropdown">
-                <a class="dropdown-toggle" data-toggle="dropdown" href="#">Generos
+                <a class="dropdown-toggle"  data-toggle="dropdown" href="#">Generos
                 <span class="caret"></span></a>
                 <ul class="dropdown-menu">
                   <li><a href="/accion">Accion</a></li>
@@ -112,12 +122,9 @@
                   <li><a href="/otros">Otros</a></li>
                 </ul>
             </li>
-
-            <li><a href="/libros">Sube tu libro</a></li>
-
-            <li><a href="/libros">Formulario</a></li>
-
-            <li><a href="/editor">Editor</a></li>
+            <li><a href="/sube_o_crea">Crea tu Libro</a></li>
+            <li><a href="/editor">Crea un Capítulo</a></li>
+            <li><a href="/faq">FAQ</a></li>
         </ul>
 
         <div id="header" style="text-align:right;">
@@ -141,7 +148,11 @@
     {% endblock %}
     </div>
 
+    <!--<div id="footer">-->
 
+    <!--FACEBOOK-->
+    
+    <!--FACEBOOK -->
 
     {% block footer %}
 
@@ -170,22 +181,6 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 
-
-
-    <div id="footer">
-    {% block footer %}
-        <hr />
-    {% endblock %}
-    </div>
-    <body> 
-        {% if user and not user.is_anonymous %} Welcome back {{ user.get_full_name }}. 
-            <a href="{% url 'user-logout' %}">Logout</a>
-        {% else %}
-            <a href="{% url 'social:begin' 'facebook' %}?next={{ request.path }}">Enter with Facebook </a>
-        {% endif %}
-    </body>
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 
 </body>
 

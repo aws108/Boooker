@@ -3,14 +3,23 @@
 {% block content %}
 
 {% for capitulo in caps %}
-
+<!--capitulo.libro.user-->
 <div class="container register">
 
-	<p style="text-align: center;">{{capitulo.nombre}}</p>
+	<p style="text-align: center;">{{capitulo.nombre}}
+	<!--
+	if borrable
+	<a href="/borrar/{{capitulo.id}}">&nbsp;&nbsp;<span class="glyphicon glyphicon-trash"></span></a>
+	endif 
+	-->
+	</p>
+
 	<p style="text-align: center;">{{capitulo.content|safe}}</p>
+
+	
+	<!--<a href="/visualizador2/{{capitulo.id}}"><button>Siguiente</button></a>-->
 
 </div>
 
 {% endfor %} 
-
 {% endblock %}

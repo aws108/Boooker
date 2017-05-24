@@ -1,10 +1,78 @@
-{% extends "home.html" %}
+
 {% load i18n %}
+<!DOCTYPE html>
+<html lang="en">
+<head> 
+    <meta charset="UTF-8" /> 
+    <title>Booker - Log out</title>
+    <style>
+        .face{
+            padding-left: 10%;
+        }
+        .logo{
+          text-align: center;
+        }
+        
+        #caja{
+          background-color:#FF8C00;
+          color:white;
+          width: 60%;
+          height:100%;
+          text-align: center;
+          margin-left:20%;
+          padding-left: 20%;
+          padding-right:20%;
+        }
+      #fondo{
+        background-color: silver;
+        width:100%;
+        height: 100%;
+        height:100%;
+        position:fixed;
+        top:0px;
+        left:0px;
+        width:100%;
+        height:100%;
+      }  
+    </style>
+      
+
+</head>
+<body>
+
+{% load bootstrap3 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+{% bootstrap_messages %}
 
 {% block content %}
 
-<p>{% trans "¡Hasta pronto!" %}</p>
+<div class="container register" >
+  <div id="fondo">
+    <div id="caja">
+    <br/>
+        <div class="logo">
+        {% load static %}
+          <img src="{% static 'bookerdouble.png' %}" style="width:150px;height:150px;">&nbsp;&nbsp;</img>
+        </div>
 
-<p>{% trans "Logged out" %}</p>
+        <hr />
+        <p>{% trans "¡Hasta pronto!" %}</p>
+        
+        <h5>Te has ido pero... ¡Puedes volver a entrar!</h5>
+        <br/>
+            <a href="{% url 'auth_login' %}"><button>{% trans "Volver a entrar" %}</button></a>
+        <br/>
+            
 
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    
+    </div>
+
+  
+  </div>
+</div>
+
+</body>
+</html>
 {% endblock %}

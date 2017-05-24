@@ -12,4 +12,9 @@ admin.site.register(Libros)
 
 from .models import Capitulos
 
-admin.site.register(Capitulos)
+
+class CapituloAdmin(admin.ModelAdmin):
+	list_display = ['nombre','libro']
+
+admin.site.register(Capitulos,CapituloAdmin)
+

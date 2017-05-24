@@ -1,0 +1,62 @@
+{% extends "home.html" %}
+{% load i18n %}
+
+{% load bootstrap3 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+{% bootstrap_messages %}
+{% block content %}
+<div class="container register">
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-sm-12" >
+			<h2>FAQ</h2>
+
+			<h5><strong>¿En qué consiste Booker?</strong></h5>
+				<p>Booker se aprovecha del uso de publicaciones de dominio público y de todo autor que prefiera publicar su obra sin ánimo de lucro con el fin que prefiera: divulgación, hobby, etc.</p><br/>
+
+			<h5><strong>¿Cómo puedo publicar una obra?</strong></h5>
+				<p>El usuario tiene dos vías para publicar su obra: mediante el editor Booker o subiendo su propia obra mediante un formulario. Para lograr ambas cosas, el usuario debe haber iniciado sesión con su usuario y contraseña, rellenando y siguiendo los pasos que se encontrará en la página seleccionada.</p><br/>
+			
+			<h5><strong>¿Qué licencias me puede facilitar Booker al realizar mi obra?</strong></h5>
+			<p>Las licencias que puede proporcionar Booker para proteger al usuario o autor son las propias de Creative Commons:</p>
+			<div class="table-responsive">
+			<table class="table table-bordered">
+				<tr>
+					<th>Atribución (BY)</th>
+					<th>No Comercial (NC)</th>
+					<th>No Derivadas (ND)</th>
+					<th>Compartir Igual (SA)</th>
+				</tr>
+				<tr>
+					<td>El beneficiario de la licencia tiene el derecho de copiar, distribuir, exhibir y representar la obra y hacer obras derivadas siempre y cuando reconozca y cite la obra de la forma especificada por el autor o el licenciante.</td>
+					<td>El beneficiario de la licencia tiene el derecho de copiar, distribuir, exhibir y representar la obra y hacer obras derivadas para fines no comerciales.</td>
+					<td>El beneficiario de la licencia solamente tiene el derecho de copiar, distribuir, exhibir y representar copias literales de la obra y no tiene el derecho de producir obras derivadas.</td>
+					<td>El beneficiario de la licencia tiene el derecho de distribuir obras derivadas bajo una licencia idéntica a la licencia que regula la obra original.</td>
+				</tr>
+			</table>
+			</div>
+			<sub>Más info:http://es.creativecommons.org/blog/licencias/</sub>
+
+			<p>Para hacer efectiva la licencia, es preferible que el usuario entre en <a href="https://creativecommons.org/choose/">creativecommons.org</a> y seleccione la licencia que más desee</p>
+
+			<p>Este es un ejemplo:</p>
+			<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">Creative Commons Attribution-NonCommercial 4.0 International License</a>.
+
+			<br/><br/>	
+			<h5><strong>¿Qué puede hacer Booker cuando se denuncia una obra?</strong></h5>
+			<p>Booker se reserva el derecho a eliminar cualquier publicación que no se ajuste a las normativas, sea denunciado por contenido que incite al odio, a la discriminación, atente contra personas vulnerables o viole el derecho del copyright o derecho de autor por el simple hecho de su creación.</p>
+
+			<h2>Normativa de publicación de una obra</h2>
+				<ul>
+					<li>Las obras publicadas deben ser exclusivamente para obra educativa, divulgativa y obras de dominio público. Cualquier obra que se detecte que se pueda encontrar bajo estas condiciones, se procederá a eliminarla.</li>
+					<li>El usuario acepta las condiciones de estas normativas al hacer pública su obra.</li>
+					<li>En cualquier momento, siempre y cuando se haya denunciado su obra por parte de algún usuario, se podrá borrar una obra publicada.</li>
+					
+				</ul>
+		</div>
+	</div>
+</div>
+</div>
+
+{% endblock %}
